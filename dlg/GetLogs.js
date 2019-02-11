@@ -19,9 +19,9 @@ exports.do = function(request) {
       // Sorting
       options.sort = [];
 
-      if (filters.sort == 'date') options.sort.push(['date', filters.sortDir == 'desc' ? 'descending' : 'ascending']);
+      if (filters.sort == 'timestamp') options.sort.push(['timestamp', filters.sortDir == 'desc' ? -1 : 1]);
       // Default sorting
-      else options.sort.push(['date', 'descending']);
+      else options.sort.push(['timestamp', -1]);
 
       // Filtering
       // Filter per correlationId
