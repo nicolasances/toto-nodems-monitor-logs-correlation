@@ -19,9 +19,9 @@ exports.do = function(request) {
       // Sorting
       options.sort = [];
 
-      if (filters.sort == 'date') options.sort.push(['date', filters.sortDir == 'desc' ? -1 : 1]);
+      if (filters.sort == 'date') options.sort.push(['date', filters.sortDir == 'desc' ? 'descending' : 'ascending']);
       // Default sorting
-      else options.sort.push(['date', -1]);
+      else options.sort.push(['date', 'descending']);
 
       // Filtering
       // Filter per correlationId
