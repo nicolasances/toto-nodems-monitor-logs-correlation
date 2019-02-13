@@ -28,7 +28,11 @@ exports.do = function(request) {
       let correlationFilter = {};
       if (filters.correlationId != null) correlationFilter = {cid: filters.correlationId};
 
-      filter = correlationFilter;
+      // Filter by date
+      let dateFilter = {};
+      if (filters.date != null) dateFilter = {timestamp: {$regex: filters.date + '.*'}};
+
+      filter = {$and: [correlationFilter, dateFilter]};
 
       // Max results
       if (filters.maxResults != null) options.limit = parseInt(filters.maxResults);
