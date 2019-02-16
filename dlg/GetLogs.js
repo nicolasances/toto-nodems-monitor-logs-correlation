@@ -32,7 +32,11 @@ exports.do = function(request) {
       let dateFilter = {};
       if (filters.date != null) dateFilter = {timestamp: {$regex: filters.date + '.*'}};
 
-      filter = {$and: [correlationFilter, dateFilter]};
+      // Filter by microservice
+      let msFilter = {};
+      if (filters.microservice != null) msFilter = {microservice: filters.microservice};
+
+      filter = {$and: [correlationFilter, dateFilter, msFilter]};
 
       // Max results
       if (filters.maxResults != null) options.limit = parseInt(filters.maxResults);
