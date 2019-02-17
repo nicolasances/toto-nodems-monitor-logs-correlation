@@ -26,7 +26,7 @@ exports.do = function(request) {
       // Filtering
       // Filter per correlationId
       let correlationFilter = {};
-      if (filters.correlationId != null) correlationFilter = {cid: filters.correlationId};
+      if (filters.correlationId != null) correlationFilter = {cid: {$regex: filters.correlationId + '.*'}};
 
       // Filter by date
       let dateFilter = {};
