@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "mongodb": "^3.1.13",
-    "toto-api-controller": "^3.0.1"
+    "toto-api-controller": "^4.0.0"
   }
 }
