@@ -6,6 +6,7 @@ exports.converter = {
     return {
       id: po._id,
       cid: po.cid,
+      msgId: po.msgId,
       timestamp: po.timestamp,
       microservice: po.microservice,
       logType: po.logType,
