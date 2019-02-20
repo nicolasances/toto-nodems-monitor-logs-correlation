@@ -21,12 +21,34 @@ exports.do = function(request) {
        */
       var tuples = getTuples(logs);
 
+      /**
+       * Get the distinct nodes that have been traversed, in order of traversal
+       */
+      var nodes = getNodes(logs);
+
       // 2. Get tuples
-      success({flow: tuples});
+      success({nodes: nodes, flow: tuples});
 
     }, failure)
 
   });
+
+}
+
+/**
+ * Get the nodes, in order of traversal time
+ */
+var getNodes = (logs) => {
+
+  let nodes = new Set();
+
+  for (var i = 0; i < logs.length; i++) {
+
+      nodes.add(logs[i].microservice);
+
+  }
+
+  return nodes;
 
 }
 
