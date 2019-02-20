@@ -48,7 +48,7 @@ var getNodes = (logs) => {
 
   }
 
-  return nodes;
+  return Array.from(nodes);
 
 }
 
